@@ -1,21 +1,12 @@
 #!/usr/bin/python3
-
 import random
-
 number = random.randint(-10000, 10000)
+last_digit = number % 10 if number >= 0 else ((-number % 10) * -1)
+message = f"Last digit of {number} is {last_digit}"
 
-# Verify if the number is positive and get the last digit
-if number >= 0:
-    lastdigit = number % 10
-
+if last_digit == 0:
+    print(f"{message} and is 0")
+elif last_digit > 5 and last_digit % 10 != 0:
+    print(f"{message} and is greater than 5")
 else:
-    lastdigit = number % (-10)
-
-if lastdigit > 5:
-    print("Last digit of {} is {:d} and is greater than 5".format(number, lastdigit))
-
-if lastdigit == 0:
-    print("Last digit of {} is {:d} and is 0".format(number, lastdigit))
-
-elif lastdigit < 6 != 0:
-    print("Last digit of {} is {:d} and is less than 6 and not 0".format(number, lastdigit))
+    print(f"{message} and is less than 6 and not 0")
